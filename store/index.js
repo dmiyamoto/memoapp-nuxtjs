@@ -33,6 +33,13 @@ export const mutations = {
       text
     }
   },
+  changeZindex(state, { index }) {
+    state.memoList = [...state.memoList]
+    state.memoList.forEach((v, idx) => {
+      if (v.zindex > 0) state.memoList[idx].zindex = state.memoList[idx].zindex - 1
+      if (index === idx) state.memoList[idx].zindex = state.memoList.length - 1
+    })
+  },
   minusMemo(state, { index }) {
     state.memoList = [...state.memoList]
     state.memoList.splice(index, 1)

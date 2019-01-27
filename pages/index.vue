@@ -10,6 +10,7 @@
       :top="mm.top"
       :left="mm.left"
       :background="mm.background"
+      :zindex="mm.zindex"
       :index="index"
       @dragStart="onDragStart($event, index)"
       @changeColor="onChangeColor($event, index)"
@@ -43,7 +44,8 @@ export default {
         top: Math.floor(this.$store.state.memoList.length / widthCount) * 350,
         left: (this.$store.state.memoList.length % widthCount) * 250,
         text: '',
-        background: '#f00'
+        background: '#f00',
+        zIndex: 0
       })
     },
     minusMemo(index) {
@@ -56,6 +58,7 @@ export default {
       this.draggingIndex = index
       this.prevX = x
       this.prevY = y
+      this.$store.commit('changeZindex', { index: this.draggingIndex })
     },
     onMousemove(e) {
       if (this.draggingIndex === null) return

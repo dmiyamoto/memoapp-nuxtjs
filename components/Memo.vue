@@ -4,7 +4,8 @@
     :style="{
       top: `${top}px`,
       left: `${left}px`,
-      background: `${background}`
+      background: `${background}`,
+      'z-index': `${zindex}`
     }"
   >
     <div class="handle" @mousedown="onMousedown">
@@ -50,6 +51,10 @@ export default {
     background: {
       type: String,
       default: '#f00'
+    },
+    zindex: {
+      type: Number,
+      default: 0
     }
   },
   methods: {

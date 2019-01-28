@@ -13,7 +13,6 @@
       :zindex="mm.zindex"
       :index="index"
       @dragStart="onDragStart($event, index)"
-      @changeColor="onChangeColor($event, index)"
       @minus="minusMemo(index)"
     />
     <plus-btn @plus="plusMemo" />
@@ -45,15 +44,15 @@ export default {
         left: (this.$store.state.memoList.length % widthCount) * 250,
         text: '',
         background: '#f00',
-        zIndex: 0
+        'z-index': 0
       })
     },
     minusMemo(index) {
       this.$store.commit('minusMemo', { index })
     },
-    onChangeColor(color, index) {
-      this.$store.commit('changeColor', { index, color })
-    },
+    // onChangeColor(color, index) {
+    //   this.$store.commit('changeColor', { index, color })
+    // },
     onDragStart({ x, y }, index) {
       this.draggingIndex = index
       this.prevX = x

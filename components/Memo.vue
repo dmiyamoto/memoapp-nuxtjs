@@ -20,20 +20,21 @@
       class="editor"
       :index="index"
     />
-    <div class="change_color">
-      <div class="red" @click="$emit('changeColor', '#f00')" />
-      <div class="blue" @click="$emit('changeColor', '#0000FF')" />
-      <div class="white" @click="$emit('changeColor', '#FFFFFF')" />
-    </div>
+    <change-color
+      class="change_color"
+      :index="index"
+    />
   </div>
 </template>
 
 <script>
 import Editor from '~/components/Editor.vue'
+import ChangeColor from '~/components/ChangeColor.vue'
 
 export default {
   components: {
-    Editor
+    Editor,
+    ChangeColor
   },
   props: {
     top: {
@@ -99,33 +100,6 @@ export default {
   left: 0;
   display: inline-flex;
   border: solid 1px #000;
-}
-.red {
-  height: 36px;
-  width: 60px;
-  margin: 5px 0px 5px 5px;
-  background: #CC0000;
-  border-bottom: solid 4px #660000;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.blue {
-  height: 36px;
-  width: 60px;
-  margin: 5px 0px 5px 5px;
-  background: #0000CC;
-  border-bottom: solid 4px #000077;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.white {
-  height: 36px;
-  width: 60px;
-  margin: 5px 5px 5px 5px;
-  background: #EEEEEE;
-  border-bottom: solid 4px #BBBBBB;
-  border-radius: 5px;
-  cursor: pointer;
 }
 .minus {
   text-align: center;
